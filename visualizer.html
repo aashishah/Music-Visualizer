@@ -1,0 +1,26 @@
+<head></head>
+
+<body>
+
+   <canvas id="output" height="500" width="500"></canvas>
+
+   <script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.iife.js"></script>
+   <script>
+      let wave = new Wave();
+
+      navigator.mediaDevices.getUserMedia({
+            audio: true
+         })
+         .then(function (stream) {
+            wave.fromStream(stream, "output", {
+               type: "shine",
+               colors: ["red", "white", "blue"]
+            });
+         })
+         .catch(function (err) {
+            console.log(err.message)
+         });
+   </script>
+</body>
+
+</html>
